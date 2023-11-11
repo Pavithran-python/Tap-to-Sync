@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:syncproject/RandomModel.dart';
-import 'StatusModel.dart';
+import 'package:syncproject/Model/RandomModel.dart';
+import 'package:syncproject/recordScreen.dart';
+import '../Model/StatusModel.dart';
 import 'SuccessBody.dart';
-import 'SuccessModel.dart';
+import '../Model/SuccessModel.dart';
 
 class StatusBody extends StatelessWidget {
-  const StatusBody({super.key,required this.screenWidth,required this.screenHeight,required this.horizontalPadding,required this.sampleScreenWidth,required this.sampleScreenHeight, required this.statusNotifier,required this.curveRadius});
+  const StatusBody({super.key,required this.screenWidth,required this.screenHeight,required this.horizontalPadding,required this.sampleScreenWidth,required this.sampleScreenHeight, required this.statusNotifier,required this.curveRadius,required this.context});
   final double screenWidth;
   final double screenHeight;
   final int horizontalPadding;
@@ -15,6 +16,11 @@ class StatusBody extends StatelessWidget {
   final double sampleScreenHeight;
   final double curveRadius;
   final StatusModel statusNotifier;
+  final BuildContext context;
+
+  navigateToRecordScreen(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>recordScreen(),),);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,18 +69,17 @@ class StatusBody extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            child: Container(
-                              child: TextButton(
-                                onPressed: (){
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: Colors.blue,
-                                  minimumSize: Size.zero,
-                                  padding: EdgeInsets.all(7),
-                                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                ),
-                                child: Text("View Record",textAlign: TextAlign.end,textScaler: TextScaler.linear(1.0),style: TextStyle(fontSize: screenHeight*(18/sampleScreenHeight),fontWeight: FontWeight.w600,color: Colors.white),),
+                            child: TextButton(
+                              onPressed: (){
+                                navigateToRecordScreen();
+                              },
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.blue,
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.all(7),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                               ),
+                              child: Text("View Records",textAlign: TextAlign.end,textScaler: TextScaler.linear(1.0),style: TextStyle(fontSize: screenHeight*(18/sampleScreenHeight),fontWeight: FontWeight.w600,color: Colors.white),),
                             ),
                           ),
                         ],

@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'SuccessModel.dart';
+import '../Model/SuccessModel.dart';
 
 
 class SuccessBody extends StatelessWidget {

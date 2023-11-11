@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:syncproject/RandomModel.dart';
-import 'SuccessModel.dart';
+import 'package:syncproject/Model/RandomModel.dart';
+import '../Model/SuccessModel.dart';
 
 class RandomBody extends StatelessWidget {
   const RandomBody({super.key,required this.screenWidth,required this.screenHeight,required this.horizontalPadding,required this.sampleScreenWidth,required this.sampleScreenHeight, required this.randomNotifier,required this.curveRadius});

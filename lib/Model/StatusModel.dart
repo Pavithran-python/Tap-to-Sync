@@ -9,7 +9,7 @@ import 'SuccessModel.dart';
 
 class StatusModel with ChangeNotifier {
   SuccessModel successModel = SuccessModel();
-      int getStatus = 0;
+  int getStatus = 0;
   int? get getStatusResponse => getStatus;
 
   void checkRandomNumber(int getChangedStatus) {

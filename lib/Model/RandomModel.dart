@@ -3,11 +3,10 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:syncproject/StatusModel.dart';
+import 'package:syncproject/Model/StatusModel.dart';
 
 class RandomModel with ChangeNotifier {
   Random random = Random();
-  StatusModel statusModel = StatusModel();
   int? randomNumber;
   int? get getRandomNumber => randomNumber;
 
