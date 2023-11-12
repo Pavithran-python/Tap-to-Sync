@@ -1,16 +1,10 @@
-# syncproject
 
-A new Flutter project.
 
-## Getting Started
+Tap to Sync
 
-This project is a starting point for a Flutter application.
+Tap every second on the screen which generates random number. This random number has to be 
+sync with your time stamp seconds. If does then you got a point.
 
-A few resources to get you started if this is your first Flutter project:
+History of events can be found in the list.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Happy Tapping!

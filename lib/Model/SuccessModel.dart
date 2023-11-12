@@ -9,7 +9,7 @@ class SuccessModel with ChangeNotifier {
   int get getSuccessCount => successCount;
 
   SuccessModel(){
-    getDatabaseRecords(1);
+    getDatabaseRecords(0);
   }
 
   void increment() {

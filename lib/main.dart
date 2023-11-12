@@ -11,10 +11,12 @@ import 'package:syncproject/Body/SuccessBody.dart';
 import 'package:syncproject/Model/SuccessModel.dart';
 import 'package:intl/intl.dart';
 import 'Body/RandomBody.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(MyApp());
 }
 
@@ -77,6 +79,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FlutterNativeSplash.remove();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var statusBarHeight = MediaQuery.of(context).padding.top;
     var bottomBarHeight = MediaQuery.of(context).padding.bottom;
@@ -96,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
             systemNavigationBarIconBrightness: Brightness.dark,
           ),
           backgroundColor: Colors.deepOrange,
-          title: Text("Time Sync",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700),),
+          title: Text("Tap to Sync",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700),),
         ),
         body: Container(
           color: Colors.white.withOpacity(0.8),
@@ -105,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                StatusWidget(),
+                StatusBody(screenWidth: screenWidth, screenHeight: screenHeight, horizontalPadding: horizontalPadding, sampleScreenWidth: sampleScreenWidth, sampleScreenHeight: sampleScreenHeight, statusNotifier: statusModel, curveRadius: curveRadius,context: context,),
                 Container(
                   width: screenWidth,
                   margin: EdgeInsets.symmetric(horizontal:screenWidth*(horizontalPadding/sampleScreenWidth),),
@@ -114,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TapButtonWidget(),
-                      RandomNumberWidget(),
+                      RandomBody(screenWidth: screenWidth, screenHeight: screenHeight, horizontalPadding: horizontalPadding, sampleScreenWidth: sampleScreenWidth, sampleScreenHeight: sampleScreenHeight, randomNotifier: randomNumberModel, curveRadius: curveRadius,),
                     ],
                   ),
                 ),
@@ -127,10 +136,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-  }
-
-  Widget StatusWidget(){
-    return StatusBody(screenWidth: screenWidth, screenHeight: screenHeight, horizontalPadding: horizontalPadding, sampleScreenWidth: sampleScreenWidth, sampleScreenHeight: sampleScreenHeight, statusNotifier: statusModel, curveRadius: curveRadius,context: context,);
   }
 
   Widget TapButtonWidget(){
@@ -169,7 +174,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget RandomNumberWidget(){
-    return RandomBody(screenWidth: screenWidth, screenHeight: screenHeight, horizontalPadding: horizontalPadding, sampleScreenWidth: sampleScreenWidth, sampleScreenHeight: sampleScreenHeight, randomNotifier: randomNumberModel, curveRadius: curveRadius,);
-  }
 }

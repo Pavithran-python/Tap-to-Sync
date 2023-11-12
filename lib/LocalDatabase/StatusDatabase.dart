@@ -36,10 +36,10 @@ class StatusDatabase{
 
   Future<List<Map<String,dynamic>>> getAllRecords(int selectedGameMode) async{
     Database db = await instance.database;
-    if(selectedGameMode==1){
+    if(selectedGameMode==0){
       return await db.rawQuery('SELECT * FROM $statusTableName WHERE $tapStatus = 1 ORDER BY $statusTableId DESC');
     }
-    else if(selectedGameMode == 2){
+    else if(selectedGameMode == 1){
       return await db.rawQuery('SELECT * FROM $statusTableName WHERE $tapStatus = 2 ORDER BY $statusTableId DESC');
     }
     else{
